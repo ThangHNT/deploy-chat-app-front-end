@@ -276,15 +276,15 @@ function SendMessage({ receiver, darkmode = false }) {
                 const newMessages = messages;
                 handleSendMessage(newMessages);
                 ChatContent.handleAddMessage(newMessages);
+                setInputValue('');
+                setBlobUrlImg('');
+                setImgBase64('');
+                setFile('');
                 const data = await axios.post(`${host}/api/send/message`, {
                     sender: currentUser._id,
                     receiver: receiver.id,
                     messages,
                 });
-                setInputValue('');
-                setBlobUrlImg('');
-                setImgBase64('');
-                setFile('');
                 if (!data.status) {
                     alert('Lỗi gửi tin nhắn');
                 }
