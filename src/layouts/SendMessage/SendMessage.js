@@ -273,14 +273,14 @@ function SendMessage({ receiver, darkmode = false }) {
                 if (soundSetting.send) {
                     messageSound.play();
                 }
+                const newMessages = messages;
+                handleSendMessage(newMessages);
+                ChatContent.handleAddMessage(newMessages);
                 const data = await axios.post(`${host}/api/send/message`, {
                     sender: currentUser._id,
                     receiver: receiver.id,
                     messages,
                 });
-                const newMessages = messages;
-                handleSendMessage(newMessages);
-                ChatContent.handleAddMessage(newMessages);
                 setInputValue('');
                 setBlobUrlImg('');
                 setImgBase64('');
