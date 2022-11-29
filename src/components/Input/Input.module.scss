@@ -1,0 +1,91 @@
+.wrapper-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+}
+
+.wrapper {
+    font-size: 16px;
+    padding: 5px 15px;
+    width: 100%;
+    letter-spacing: 1.5px;
+}
+
+.normal {
+    border-radius: 5px;
+    border: 2px solid var(--border-input);
+    outline: none;
+    padding: 8px 15px;
+
+    &:focus {
+        border-color: var(--primary);
+    }
+}
+
+.input {
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: 2px solid var(--border-input);
+    outline: none;
+    transition: 0.25s ease;
+
+    &:focus {
+        border-color: var(--primary);
+    }
+}
+
+.label {
+    user-select: none;
+    position: absolute;
+    left: 6%;
+    top: 8px;
+    color: #999;
+    pointer-events: none;
+    background-color: #fff;
+    padding: 0 5px;
+    transition: top 200ms ease-in, font-size 200ms ease-in;
+}
+
+.input:not(:placeholder-shown) + .label,
+.input:focus + .label {
+    top: -12px;
+    font-size: 14px;
+    color: var(--primary);
+}
+
+.arounded {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    letter-spacing: 1px;
+    padding: 8px 15px;
+}
+
+.file {
+    cursor: pointer;
+}
+
+.chat {
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    resize: none;
+    line-height: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 34px;
+    max-height: 84px;
+    border-width: 2px;
+    border-color: var(--border-input);
+
+    &:focus {
+        border: 2px solid var(--primary);
+    }
+
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
+}

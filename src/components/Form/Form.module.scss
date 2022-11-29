@@ -1,0 +1,26 @@
+.form {
+    --input-width: 300px;
+    min-width: 315px;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    position: relative;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.login-btn {
+    margin-top: 30px;
+}
+
+.wrapper-input {
+    width: 100%;
+}
+
+.wrapper-input + .wrapper-input {
+    margin-top: 30px;
+}

@@ -1,0 +1,48 @@
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    bottom: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 40px 20px;
+
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 50px;
+        min-height: 25px;
+        border-radius: 5px;
+        margin-left: 15px;
+        cursor: pointer;
+        user-select: none;
+        padding: 4px 6px;
+        font-weight: 550;
+    }
+
+    .cancel-btn {
+        color: red;
+        &:hover {
+            background-color: #bbb;
+        }
+    }
+
+    .store-btn {
+        color: var(--primary);
+        background-color: #aaa;
+        cursor: no-drop;
+        color: #fff;
+    }
+
+    .canChange {
+        background-color: var(--primary);
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.85;
+        }
+    }
+}

@@ -1,0 +1,196 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,600;1,700&family=Open+Sans:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary: rgb(42, 123, 237);
+    --primary-hover: rgb(17, 110, 240);
+    --secondary: rgb(244, 156, 68);
+    --secondary-hover: rgb(231, 99, 18);
+    --border-input: rgb(83, 81, 81);
+    --header-height: 65px;
+    --message-item-height: 64px;
+    --action-btn-font-size: 22px;
+    --button-icon-hover: #ccc;
+    --dark-mode-btn: rgb(73, 147, 180);
+    --dark-mode: rgb(36, 37, 38);
+    --light-mode: #fff;
+    --positive: #31a24c;
+    --width-chat-content: 46%;
+    --font-family-primary: 'Helvetica Neue', Helvetica, Arial;
+    --white: #fff;
+    --width-of-chat-app: 0 15%;
+    --margin-top-home-content: 75px;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.online {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: var(--positive);
+    border-radius: 50%;
+    border: 1px solid #000;
+    top: 64%;
+    left: 80%;
+}
+
+.darkmode {
+    background-color: var(--dark-mode) !important;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.theme0 {
+    background-clip: padding-box !important;
+    background-color: #ddd;
+    border: 1px solid transparent;
+    color: #000 !important;
+}
+
+.theme1 {
+    background-image: radial-gradient(
+        circle at center 75%,
+        rgb(0, 95, 255) 0%,
+        rgb(146, 0, 255) 50%,
+        rgb(255, 46, 25) 100%
+    );
+}
+.theme2 {
+    background-image: radial-gradient(
+        circle at center 75%,
+        rgb(255, 214, 0) 0%,
+        rgb(252, 179, 123) 33%,
+        rgb(157, 89, 210) 66%,
+        rgb(40, 40, 40) 99%
+    );
+}
+.theme3 {
+    background-image: radial-gradient(
+        circle at center 75%,
+        rgb(250, 175, 0) 0%,
+        rgb(255, 46, 46) 50%,
+        rgb(58, 18, 255) 100%
+    );
+}
+.theme4 {
+    background-image: radial-gradient(
+        circle at center 75%,
+        rgb(0, 82, 205) 0%,
+        rgb(0, 161, 230) 50%,
+        rgb(0, 82, 205) 100%
+    );
+}
+.theme5 {
+    background-image: radial-gradient(
+        circle at center 75%,
+        rgb(255, 0, 24) 0%,
+        rgb(255, 4, 23) 6%,
+        rgb(255, 49, 14) 12%,
+        rgb(255, 93, 6) 18%,
+        rgb(255, 122, 1) 24%,
+        rgb(255, 135, 1) 30%,
+        rgb(255, 176, 1) 36%,
+        rgb(217, 197, 7) 42%,
+        rgb(121, 199, 24) 48%,
+        rgb(1, 201, 45) 54%,
+        rgb(1, 190, 105) 60%,
+        rgb(1, 179, 170) 66%,
+        rgb(11, 161, 223) 72%,
+        rgb(63, 119, 230) 78%,
+        rgb(114, 76, 236) 84%,
+        rgb(138, 57, 239) 90%,
+        rgb(138, 57, 239) 96%
+    );
+}
+
+.theme6 {
+    background-image: radial-gradient(
+        circle at center 75%,
+        rgb(42, 127, 227) 0%,
+        rgb(0, 191, 145) 50%,
+        rgb(159, 213, 45) 100%
+    );
+}
+
+.theme7 {
+    background-image: radial-gradient(
+        circle at center 75%,
+        rgb(242, 92, 84) 0%,
+        rgb(244, 132, 95) 50%,
+        rgb(247, 178, 103) 100%
+    );
+}
+
+.theme8 {
+    background-color: rgb(251, 69, 222);
+}
+
+.theme9 {
+    background-image: radial-gradient(
+        circle at center 75%,
+        rgb(255, 143, 178) 0%,
+        rgb(167, 151, 255) 50%,
+        rgb(0, 229, 255) 100%
+    );
+}
+
+.theme10 {
+    background-image: radial-gradient(circle at center 75%, rgb(0, 213, 47) 0%, rgb(0, 101, 40) 100%);
+}
+
+.theme11 {
+    background-image: radial-gradient(
+        circle at center 75%,
+        rgb(247, 215, 0) 0%,
+        rgb(247, 215, 0) 50%,
+        rgb(247, 215, 0) 100%
+    );
+}
+
+.theme12 {
+    background-image: radial-gradient(
+        circle at center 75%,
+        rgb(147, 20, 16) 0%,
+        rgb(147, 20, 16) 50%,
+        rgb(147, 20, 16) 100%
+    );
+}
+
+.theme13 {
+    background-image: radial-gradient(circle at center 75%, rgb(0, 128, 255) 0%, rgb(159, 26, 255) 100%);
+}
+
+.theme14 {
+    background-image: radial-gradient(
+        circle at center 75%,
+        rgb(255, 210, 0) 0%,
+        rgb(110, 223, 0) 50%,
+        rgb(0, 223, 187) 100%
+    );
+}
+
+.add-theme {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}

@@ -1,0 +1,49 @@
+.wrapper {
+    width: 65%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 100vh;
+}
+
+.none-reciever {
+    font-size: 70px;
+}
+
+.content,
+.send-message,
+.block-status {
+    position: fixed;
+    width: var(--width-chat-content);
+}
+
+//  content
+
+.content {
+    top: 122px;
+    bottom: 50px;
+}
+
+// send-message input
+
+.send-message {
+    max-height: 40px;
+    bottom: 60px;
+    z-index: 1;
+}
+
+// loading
+.loading {
+    font-size: 25px;
+    animation: spinner linear 1s infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

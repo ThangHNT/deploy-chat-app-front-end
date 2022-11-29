@@ -1,0 +1,183 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    width: 110px;
+    height: 40px;
+    border: none;
+    padding: 6px 10px;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    line-height: 1.5;
+    background-color: #fff;
+    position: relative;
+}
+
+.title {
+    margin: 0;
+    font-size: 15px;
+    min-width: 70px;
+    display: block;
+}
+
+.icon {
+    min-width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon + .title,
+.title + .icon {
+    margin-left: 10px;
+}
+
+.tickBtn + .title {
+    margin: 0;
+}
+
+.tickBtn {
+    position: absolute;
+    left: 42px;
+}
+
+.text {
+    color: #000;
+    width: 100%;
+    font-family: sans-serif;
+
+    &:hover {
+        background-color: rgb(240, 240, 240);
+    }
+}
+
+.messageItem {
+    justify-content: flex-start;
+    padding: 0 10px;
+}
+
+.primary {
+    color: #fff;
+    background-color: var(--primary);
+
+    &:hover {
+        background-color: var(--primary-hover);
+    }
+}
+
+.secondary {
+    background-color: var(--secondary);
+    color: #fff;
+
+    &:hover {
+        background-color: var(--secondary-hover);
+    }
+}
+
+.normal {
+    background-color: #6c757d;
+    color: var(--white);
+    padding: 0;
+}
+
+.large {
+    width: 300px;
+}
+
+.small {
+    width: 150px;
+}
+
+.circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+
+    &:hover {
+        background-color: #ccc;
+        cursor: pointer;
+    }
+}
+
+.noTitle {
+    width: 35px;
+    height: 35px;
+    font-size: var(--action-btn-font-size);
+    border-radius: 50%;
+    background-color: #fff;
+
+    &:hover {
+        background-color: var(--button-icon-hover);
+    }
+}
+
+.noBorderRadius {
+    border-radius: 0;
+}
+
+.message_sended {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 14px;
+    padding: 0;
+
+    &:hover {
+        background-color: var(--button-icon-hover);
+    }
+}
+
+.nestInput {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    z-index: 1;
+    border-radius: 50%;
+
+    .title {
+        opacity: 0;
+        margin: 0;
+        position: absolute;
+        z-index: 2;
+    }
+
+    &:hover {
+        background-color: #ccc;
+        cursor: pointer;
+    }
+}
+
+.scrollDown {
+    width: 40px;
+    height: 40px;
+    color: rgb(45, 94, 239);
+
+    &:hover {
+        background-color: rgb(50, 49, 49);
+    }
+}
+
+// ========================== dark mode =================================
+.darkmodeBtn {
+    transition: 0.25s;
+    background-color: var(--dark-mode);
+    color: #fff;
+
+    &:hover {
+        background-color: #444;
+    }
+}
+
+.darkmodeOptionBtn {
+    transition: 0.25s;
+    background-color: #333;
+    color: #fff;
+
+    &:hover {
+        background-color: #444;
+    }
+}
