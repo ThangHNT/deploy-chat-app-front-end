@@ -43,6 +43,7 @@ function VideoCall() {
     const [camera, setCamera] = useState(true);
 
     const myVideo = useRef();
+    const soundRef = useRef(new Audio('nhac-chuong-cuoc-goi-zalo.mp3'));
     const userVideo = useRef();
     const peer = useRef();
 
@@ -53,6 +54,7 @@ function VideoCall() {
             setCaller((pre) => {
                 return { avatar: recipient.avatar, username: recipient.username, notify: 'Đang gọi ....' };
             });
+
             navigator.mediaDevices
                 .getUserMedia({ video: true, audio: true })
                 .then((stream) => {
@@ -86,6 +88,7 @@ function VideoCall() {
                 })
                 .catch((err) => console.log('loi set peer'));
         }
+
         // eslint-disable-next-line
     }, [recipient]);
 
@@ -93,12 +96,15 @@ function VideoCall() {
     useEffect(() => {
         if (receiverSignal && peer.current) {
             peer.current.signal(receiverSignal);
+            handleTurnOffRingtone();
         }
+        // eslint-disable-next-line
     }, [receiverSignal]);
 
     // khi có cuộc gọi mới
     useEffect(() => {
         if (newCall) {
+            ringtone();
             const caller = friends.get(newCall);
             setCaller({ username: caller.username, avatar: caller.avatar, notify: 'Cuộc gọi đến' });
         }
@@ -139,6 +145,7 @@ function VideoCall() {
     useEffect(() => {
         let timerId;
         if (endCall) {
+            // console.log(endCall);
             if (endCall.sender === newCall || endCall.sender === ChatContent.receiver) {
                 setCaller((pre) => {
                     return {
@@ -164,13 +171,13 @@ function VideoCall() {
         let timerId;
         if (busyUser) {
             setCaller((pre) => {
-                pre.notify = 'Người dùng bận';
+                pre.notify = busyUser.msg;
                 return { ...pre };
             });
             timerId = setTimeout(() => {
                 handleCloseVideoCall();
                 handleSetBusyUser(false);
-            }, 2000);
+            }, 3000);
         }
         return () => {
             clearTimeout(timerId);
@@ -178,13 +185,27 @@ function VideoCall() {
         // eslint-disable-next-line
     }, [busyUser]);
 
-    const handleAcceptCall = useCallback(() => {
+    const ringtone = () => {
+        soundRef.current.loop = true;
+        soundRef.current.load();
+        soundRef.current.play();
+    };
+
+    const handleTurnOffRingtone = () => {
+        soundRef.current.loop = false;
+        soundRef.current.load();
+        soundRef.current.muted = true;
+    };
+
+    const handleAcceptCall = () => {
         console.log('answer');
         setAnswerCall(true);
-    }, []);
+        handleTurnOffRingtone();
+    };
 
     const handleClickEndCall = () => {
         console.log('click end call');
+        handleTurnOffRingtone();
         let msg, receiver;
         if (recipient) {
             msg = 'Cuộc gọi kết thúc';

@@ -102,7 +102,7 @@ function SocketContextProvider({ children }) {
 
             socket.on('user busy', (data) => {
                 console.log('user ban');
-                handleSetBusyUser(data.value);
+                handleSetBusyUser(data);
             });
         }
         // eslint-disable-next-line
