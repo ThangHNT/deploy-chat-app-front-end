@@ -83,8 +83,9 @@ function Form({ login, signup }) {
                     const { data } = await axios.post(`${host}/register`, values);
                     if (data.status === true) {
                         handleSeCurrenttUser(data.newUser);
-                        toast.success('Chuyển hướng đến trang chủ.');
+                        // toast.success('Chuyển hướng đến trang chủ.');
                         localStorage.setItem('chat-app-hnt', JSON.stringify(data.newUser));
+                        navigate('/');
                     } else {
                         toast(data.msg);
                     }
@@ -101,8 +102,9 @@ function Form({ login, signup }) {
                     console.log('login');
                     // console.log(data.user);
                     handleSeCurrenttUser(data.user);
-                    toast.success('Chuyển hướng đến trang chủ.');
+                    // toast.success('Chuyển hướng đến trang chủ.');
                     localStorage.setItem('chat-app-hnt', JSON.stringify(data.user));
+                    navigate('/');
                 }
             } catch (e) {
                 console.log('loi log in');
