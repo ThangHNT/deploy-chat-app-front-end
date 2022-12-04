@@ -3,15 +3,22 @@ import classNames from 'classnames/bind';
 import axios from 'axios';
 import Picker from 'emoji-picker-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilePdf, faFileVideo, faFileWord, faPhotoFilm, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+    faFilePdf,
+    faFileVideo,
+    faFileWord,
+    faPhotoFilm,
+    faXmarkCircle,
+    // faPaperPlane,
+} from '@fortawesome/free-solid-svg-icons';
 import {
     faFaceGrin,
     faFileLines,
     faFileAudio,
     faFileExcel,
     faFilePowerpoint,
+    faPaperPlane,
 } from '@fortawesome/free-regular-svg-icons';
-import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
 import Image from '~/components/Image';
 import Button from '~/components/Button';
 import Input from '~/components/Input';
@@ -180,7 +187,7 @@ function SendMessage({ receiver, darkmode = false }) {
         // eslint-disable-next-line
     }, [blobUrlImg]);
 
-    const handleRemoveImg = () => {
+    const handleRemoveAttachment = () => {
         setImgBase64('');
         setFile('');
     };
@@ -229,69 +236,6 @@ function SendMessage({ receiver, darkmode = false }) {
         }
     };
 
-    // ấn enter để gửi tin nhắn
-    const handleEnterSubmit = async (e) => {
-        let shiftKey = 0;
-        if (e.shiftKey) shiftKey = 16;
-        if (e.which === 13 && shiftKey !== 16) {
-            e.preventDefault();
-            let content = [];
-            let messages = {
-                receiver: receiver.id,
-                sender: currentUser._id,
-                content,
-            };
-            let textMsg = inputValue.length > 0 ? inputValue.trim() : '';
-            // let content;
-            if (imgBase64.length > 0) {
-                content.push({
-                    img: imgBase64,
-                    type: 'img',
-                    time: new Date().getTime(),
-                });
-            }
-            if (textMsg.length > 0) {
-                content.push({
-                    text: inputValue.trim(),
-                    type: 'text',
-                    time: new Date().getTime(),
-                });
-            }
-            if (file) {
-                if (file.text.length > 0) {
-                    content.push({
-                        file: { content: file.text, filename: file.filename, size: file.size },
-                        type: file.type,
-                        time: new Date().getTime(),
-                    });
-                }
-            }
-            // console.log(messages);
-            if (messages.content.length > 0) {
-                inputRef.current.setHeight(32);
-                messageSound.src = 'send-message-sound.mp3';
-                if (soundSetting.send) {
-                    messageSound.play();
-                }
-                const newMessages = messages;
-                handleSendMessage(newMessages);
-                ChatContent.handleAddMessage(newMessages);
-                setInputValue('');
-                setBlobUrlImg('');
-                setImgBase64('');
-                setFile('');
-                const data = await axios.post(`${host}/api/send/message`, {
-                    sender: currentUser._id,
-                    receiver: receiver.id,
-                    messages,
-                });
-                if (!data.status) {
-                    alert('Lỗi gửi tin nhắn');
-                }
-            }
-        }
-    };
-
     // kiểm tra tình trạng chặn
     const handleGetBlockStatus = async () => {
         const data = await axios.post(`${host}/api/check-block-status`, {
@@ -305,6 +249,73 @@ function SendMessage({ receiver, darkmode = false }) {
             handlSetBlockStatus(data2);
         } else {
             console.log('loi check block status');
+        }
+    };
+
+    // ấn enter để gửi tin nhắn
+    const handleEnterSubmit = async (e) => {
+        let shiftKey = 0;
+        if (e.shiftKey) shiftKey = 16;
+        if (e.which === 13 && shiftKey !== 16) {
+            e.preventDefault();
+            handleSendMessageNow();
+        }
+    };
+
+    const handleSendMessageNow = async () => {
+        let content = [];
+        let messages = {
+            receiver: receiver.id,
+            sender: currentUser._id,
+            content,
+        };
+        let textMsg = inputValue.length > 0 ? inputValue.trim() : '';
+        // let content;
+        if (imgBase64.length > 0) {
+            content.push({
+                img: imgBase64,
+                type: 'img',
+                time: new Date().getTime(),
+            });
+        }
+        if (textMsg.length > 0) {
+            content.push({
+                text: inputValue.trim(),
+                type: 'text',
+                time: new Date().getTime(),
+            });
+        }
+        if (file) {
+            if (file.text.length > 0) {
+                content.push({
+                    file: { content: file.text, filename: file.filename, size: file.size },
+                    type: file.type,
+                    time: new Date().getTime(),
+                });
+            }
+        }
+        // console.log(messages);
+        if (messages.content.length > 0) {
+            inputRef.current.setHeight(32);
+            messageSound.src = 'send-message-sound.mp3';
+            if (soundSetting.send) {
+                messageSound.play();
+            }
+            const newMessages = messages;
+            handleSendMessage(newMessages);
+            ChatContent.handleAddMessage(newMessages);
+            setInputValue('');
+            setBlobUrlImg('');
+            setImgBase64('');
+            setFile('');
+            const data = await axios.post(`${host}/api/send/message`, {
+                sender: currentUser._id,
+                receiver: receiver.id,
+                messages,
+            });
+            if (!data.status) {
+                alert('Lỗi gửi tin nhắn');
+            }
         }
     };
 
@@ -324,19 +335,15 @@ function SendMessage({ receiver, darkmode = false }) {
                                         <Input noLabel file type="file" input name="file" autoComplete="off" />
                                     </Button>
                                 </div>
-                                <div className={cx('chat-btn-item')}>
-                                    <Button
-                                        darkmodeBtn={darkmode}
-                                        nestInput
-                                        leftIcon={<FontAwesomeIcon icon={faMicrophone} />}
-                                    ></Button>
-                                </div>
                             </div>
                             <div className={cx('chat-input')}>
                                 {imgBase64.length > 0 && (
                                     <div className={cx('attachment-list')}>
                                         <div className={cx('attachment-item')}>
-                                            <div className={cx('remove-attachment-item')} onClick={handleRemoveImg}>
+                                            <div
+                                                className={cx('remove-attachment-item')}
+                                                onClick={handleRemoveAttachment}
+                                            >
                                                 <FontAwesomeIcon
                                                     className={cx('remove-attachment-icon', {
                                                         removeIconDarkmode: darkmode,
@@ -353,7 +360,10 @@ function SendMessage({ receiver, darkmode = false }) {
                                 {file && (
                                     <div className={cx('attachment-list')}>
                                         <div className={cx('attachment-item')}>
-                                            <div className={cx('remove-attachment-item')} onClick={handleRemoveImg}>
+                                            <div
+                                                className={cx('remove-attachment-item')}
+                                                onClick={handleRemoveAttachment}
+                                            >
                                                 <FontAwesomeIcon
                                                     className={cx('remove-attachment-icon')}
                                                     icon={faXmarkCircle}
@@ -420,6 +430,13 @@ function SendMessage({ receiver, darkmode = false }) {
                                         </div>
                                     )}
                                 </div>
+                            </div>
+                            <div className={cx('chat-btn-item')} onClick={handleSendMessageNow}>
+                                <Button
+                                    darkmodeBtn={darkmode}
+                                    nestInput
+                                    leftIcon={<FontAwesomeIcon icon={faPaperPlane} />}
+                                ></Button>
                             </div>
                         </div>
                     )}
