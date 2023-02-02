@@ -46,10 +46,10 @@ function Form({ login, signup }) {
             toast.error('Mật khẩu không trùng khớp');
             return false;
         }
-        // if (!handleCheckPassword(password)) {
-        //     toast.error('Mật khẩu tối thiểu 8 ký tự, bao gồm chữ cái viết hoa, viết thường, ký tự đặc biệt và số');
-        //     return false;
-        // }
+        if (!handleCheckPassword(password)) {
+            toast.error('Mật khẩu tối thiểu 8 ký tự, bao gồm chữ cái viết hoa, viết thường, ký tự đặc biệt và số');
+            return false;
+        }
         return true;
     };
 
