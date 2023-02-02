@@ -177,7 +177,7 @@ function VideoCall() {
             timerId = setTimeout(() => {
                 handleCloseVideoCall();
                 handleSetBusyUser(false);
-            }, 3000);
+            }, 30000);
         }
         return () => {
             clearTimeout(timerId);
