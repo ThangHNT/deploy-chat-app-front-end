@@ -82,9 +82,9 @@ function MessageProvider({ children }) {
             if (fromDB) {
                 setMessages((pre) => {
                     // khi lưu tin nhắn vào database
-                    // return pre.set(key, [...value]);
+                    return pre.set(key, [...value]);
 
-                    return pre.set(key, [...value, ...allMessage]);
+                    // return pre.set(key, [...value, ...allMessage]);
                 });
                 return;
             } else {
