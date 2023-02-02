@@ -1,0 +1,116 @@
+.wrapper {
+    height: var(--message-item-height);
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #ddd;
+    }
+}
+.wrapper + .wrapper {
+    margin-top: 5px;
+}
+
+.searchResult {
+    height: 48px;
+    border: none;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.info {
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+
+    .message {
+        font-size: 14px;
+    }
+
+    .username,
+    .message {
+        max-width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        user-select: none;
+    }
+
+    .username {
+        font-size: 16px;
+        font-weight: 500;
+        font-family: var(--font-family-primary);
+    }
+}
+
+.message-notification {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: 18%;
+    transform: translateY(-50%);
+}
+
+.wrapper-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: #666;
+    }
+}
+
+.message-item-action-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    right: 6px;
+    top: 58px;
+    overflow: hidden;
+    box-shadow: 0px 0px 1px 1px #ccc;
+    z-index: 10;
+}
+
+// ================================ dark mode =======================
+.darkBackground {
+    transition: 0.25s;
+    background-color: var(--dark-mode);
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(123, 119, 119);
+    }
+}

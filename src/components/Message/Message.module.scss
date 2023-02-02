@@ -1,0 +1,165 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.sender {
+    flex-direction: row-reverse;
+}
+
+.wrapper-content {
+    max-width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    border: 1px solid #aaa;
+}
+
+.WrapperMsgNotText {
+    background-color: transparent !important;
+    border: none;
+}
+
+.revoked-message,
+.text-message {
+    display: block;
+    width: 100%;
+    background-color: #ccc;
+    padding: 8px 10px;
+    border-radius: 20px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+    line-height: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.revoked-message {
+    font-style: italic;
+    font-size: 15px;
+    color: #666768 !important;
+    background-color: #ddd;
+    border: 1px solid #aaa;
+}
+
+.revokedMsgDarkmode {
+    background-color: var(--dark-mode);
+}
+
+.urlText {
+    color: var(--primary);
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+        color: rgb(145, 37, 223);
+    }
+}
+
+.img-message {
+    cursor: pointer;
+    max-width: 20rem;
+    height: auto;
+    user-select: none;
+}
+
+.wrapper-file-message {
+    background-color: #ccc;
+    max-width: 100%;
+    padding: 8px 14px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .file-icon {
+        font-size: 22px;
+    }
+
+    .properties {
+        padding: 0 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    p {
+        font-size: 15px;
+        text-decoration: underline;
+        font-weight: 600;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    span {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+}
+
+.video {
+    width: 30rem;
+    height: auto;
+    border-radius: 5px;
+}
+
+.message-sended-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 8px;
+    min-width: 50px;
+    display: none;
+}
+
+.time-message {
+    font-size: 14px;
+    padding: 0 4px;
+    background-color: #fff;
+    border-radius: 2px;
+    user-select: none;
+    display: none;
+    color: #000 !important;
+}
+
+.reaction-icon {
+    position: absolute;
+    right: 10px;
+    bottom: -12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    user-select: none;
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        padding: 1px;
+    }
+}
+
+.reply-message-tippy,
+.delete-message-tippy {
+    padding: 4px 5px;
+    background-color: #fff;
+    color: #000 !important;
+    font-size: 14px;
+    border-radius: 5px;
+    user-select: none;
+}
+
+// =========================== dark mode =========================
+.darkModeWrapperMsg {
+    background-color: #222;
+}

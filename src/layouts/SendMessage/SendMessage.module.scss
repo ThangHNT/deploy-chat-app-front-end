@@ -1,0 +1,110 @@
+.chat-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.block-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    span {
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .username {
+        font-weight: 600;
+        color: var(--primary);
+        padding: 0 4px;
+    }
+}
+
+.chat-btns {
+    display: flex;
+}
+
+.chat-btn-item:nth-child(2),
+.chat-btn-item:nth-child(3) {
+    margin: 0 4px;
+}
+
+.chat-input {
+    flex: 1;
+}
+
+.attachment-list {
+    position: absolute;
+    display: flex;
+    padding: 10px;
+    bottom: 40px;
+    background-color: #aaa;
+    box-shadow: 0 0 4px 0 #ccc;
+    border-radius: 5px;
+}
+
+.attachment-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.attachment-item + .attachment-item {
+    margin-left: 10px;
+}
+
+.remove-attachment-item {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    right: -0.6rem;
+    top: -0.5rem;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .remove-attachment-icon {
+        font-size: 18px;
+    }
+}
+
+.file-icon {
+    font-size: 24px;
+}
+
+.wrapper-name-icon-file {
+    display: flex;
+    align-items: center;
+    padding-right: 12px;
+    padding-top: 4px;
+    width: 100%;
+    span {
+        font-size: 15px;
+        padding-left: 4px;
+        color: yellow;
+        user-select: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.wrapper-emoji-btn {
+    position: relative;
+    // z-index: 5;
+}
+
+.emoji-list {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+// ============================= dark mode =====================================
+.removeIconDarkmode {
+    color: #000;
+}

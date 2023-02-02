@@ -1,0 +1,174 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--width-of-chat-app);
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #fff;
+}
+
+.wrapper-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 180px;
+    animation: rolling 1.8s linear forwards reverse;
+    z-index: 2;
+}
+
+.header-title {
+    position: absolute;
+    left: 120px;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0;
+    animation: welcome 3.5s linear;
+    z-index: 1;
+    color: crimson;
+}
+
+@keyframes rolling {
+    from {
+        left: 0;
+        transform: rotate(0deg);
+    }
+    to {
+        left: 180px;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes welcome {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.8;
+    }
+    85% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.help {
+    display: flex;
+    align-items: center;
+
+    span {
+        margin-right: 5px;
+        font-weight: 600;
+    }
+
+    &:hover {
+        color: var(--primary);
+        cursor: pointer;
+    }
+}
+
+.app-name {
+    text-align: center;
+    user-select: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: changeColor 15s linear infinite;
+    color: transparent;
+}
+
+@keyframes changeColor {
+    0% {
+        background: linear-gradient(#000, #000);
+        -webkit-background-clip: text;
+    }
+    10% {
+        background: linear-gradient(#ee9ca7, #ffdde1);
+        -webkit-background-clip: text;
+    }
+    20% {
+        background: linear-gradient(#c6ffdd, #fbd786, #f7797d);
+        -webkit-background-clip: text;
+    }
+    30% {
+        background: linear-gradient(#12c2e9, #c471ed, #f64f59);
+        -webkit-background-clip: text;
+    }
+    40% {
+        background: linear-gradient(#b92b27, #1565c0);
+        -webkit-background-clip: text;
+    }
+    50% {
+        background: linear-gradient(#aa4b6b, #6b6b83, #3b8d99);
+        -webkit-background-clip: text;
+    }
+    60% {
+        background: linear-gradient(#c31432, #240b36);
+        -webkit-background-clip: text;
+    }
+    70% {
+        background: linear-gradient(#f12711, #f5af19);
+        -webkit-background-clip: text;
+    }
+    80% {
+        background: linear-gradient(#659999, #f4791f);
+        -webkit-background-clip: text;
+    }
+    90% {
+        background: linear-gradient(#dd3e54, #6be585);
+        -webkit-background-clip: text;
+    }
+    100% {
+        background: linear-gradient(#009fff, #ec2f4b);
+        -webkit-background-clip: text;
+    }
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+
+    .user-name {
+        font-size: 15px;
+        font-weight: 600;
+        margin-right: 10px;
+        user-select: none;
+    }
+
+    .user-menu {
+        border-radius: 5px;
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+        box-shadow: 0 0 5px 0px #ccc;
+        background-color: #fff;
+    }
+}
+
+.current-user {
+    cursor: pointer;
+}
+
+// ============================== dark mode ==================================
+.darkmodeBorder {
+    border-bottom: 1px solid #ccc;
+}

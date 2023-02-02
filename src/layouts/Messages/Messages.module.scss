@@ -1,0 +1,84 @@
+.wrapper {
+    width: 100%;
+    min-height: 480px;
+    max-height: 480px;
+    margin-top: 5px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 0 5px 15px 5px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5;
+    border-radius: 10px;
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #ccc;
+}
+
+.body {
+    position: relative;
+    width: 100%;
+}
+
+.message-item + .message-item {
+    margin-top: 12px;
+}
+
+.scroll-down-btn {
+    position: absolute;
+    bottom: 100px;
+    z-index: 10;
+    left: 50%;
+    box-shadow: 0px 0px 2px 0 #ccc;
+    border-radius: 50%;
+    animation: displayBtnDown ease-out 0.2s;
+}
+
+@keyframes displayBtnDown {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// hình nền đoạn chat
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    min-height: 485px;
+    max-height: 485px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: #000;
+        opacity: 0.4;
+    }
+}
